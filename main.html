@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #171125;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 1s ease;
+}
+
+/* Main PNG image */
+.logo {
+    width: 800px;
+    max-width: 95vw;
+    height: auto;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+/* Photos button */
+.photos-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 8px;
+    padding: 14px 45px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.photos-btn:hover {
+    background: white;
+    color: #101412;
+    border-color: white;
+}
+
+/* Popup background */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* Popup box */
+.modal-content {
+    background: #4A3870;
+    border: 1px solid #6C50A2;
+    border-radius: 15px;
+    width: 900px;
+    max-width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 35px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: white;
+}
+
+/* Photo gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.15);
+}
+
+/* Enlarged photo */
+.viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+}
+
+.viewer.active {
+    display: flex;
+}
+
+.viewer img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        padding: 25px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- CHANGE THIS TO YOUR PNG -->
+    <img src="images/logo.png" alt="Logo" class="logo">
+
+    <h1>Coming Soon</h1>
+
+    <button class="photos-btn" onclick="openPhotos()">
+        NUOTRAUKOS
+    </button>
+
+</div>
+
+<!-- Photos popup -->
+<div class="modal" id="photosModal">
+    <div class="modal-content">
+
+        <button class="close" onclick="closePhotos()">
+            &times;
+        </button>
+
+        <h2>NUOTRAUKOS</h2>
+
+        <div class="gallery">
+
+            <!-- ADD YOUR PHOTOS HERE -->
+            <img src="images/photo1.png" alt="Photo 1" onclick="viewPhoto(this)">
+            <img src="images/photo2.png" alt="Photo 2" onclick="viewPhoto(this)">
+            <img src="images/photo3.png" alt="Photo 3" onclick="viewPhoto(this)">
+            <img src="images/photo4.png" alt="Photo 4" onclick="viewPhoto(this)">
+            <img src="images/photo5.png" alt="Photo 5" onclick="viewPhoto(this)">
+            <img src="images/photo6.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo7.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo8.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo9.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo10.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo11.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo12.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo13.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo14.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo15.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo16.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo17.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo18.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo19.png" alt="Photo 6" onclick="viewPhoto(this)">
+            <img src="images/photo20.png" alt="Photo 6" onclick="viewPhoto(this)">
+
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Fullscreen photo viewer -->
+<div class="viewer" id="photoViewer" onclick="closeViewer()">
+    <img id="viewerImage" alt="Enlarged photo">
+</div>
+
+<script>
+const modal = document.getElementById("photosModal");
+const viewer = document.getElementById("photoViewer");
+const viewerImage = document.getElementById("viewerImage");
+
+function openPhotos() {
+    modal.classList.add("active");
+}
+
+function closePhotos() {
+    modal.classList.remove("active");
+}
+
+function viewPhoto(img) {
+    viewerImage.src = img.src;
+    viewerImage.alt = img.alt;
+    viewer.classList.add("active");
+}
+
+function closeViewer() {
+    viewer.classList.remove("active");
+}
+
+modal.addEventListener("click", function(e) {
+    if (e.target === modal) {
+        closePhotos();
+    }
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        closeViewer();
+        closePhotos();
+    }
+});
+</script>
+
+</body>
+</html>
